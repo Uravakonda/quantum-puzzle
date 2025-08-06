@@ -54,7 +54,7 @@ def get_puzzles():
             (1/sqrt(2)) * complex(sqrt(2)/2, sqrt(2)/2)
         ]),
         "solution": phase_solution,
-        "question": "Prepare the state (|0⟩ + e^{iπ/4}|1⟩)/√2 from |0⟩ using H and RZ(π/4)."
+        "question": "Prepare the state (|0⟩ + e^{iπ/4}|1⟩)/√2 from |0⟩."
     })
 
     # 4. Bell State

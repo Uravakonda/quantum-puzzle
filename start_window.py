@@ -2,7 +2,7 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
 from puzzle_window import PuzzleWindow
-from answers_window import AnswersWindow
+from bloch_window import BlochWindow
 
 class StartWindow(QMainWindow):
     def __init__(self):
@@ -11,13 +11,14 @@ class StartWindow(QMainWindow):
 
         # Connect buttons
         self.playButton.clicked.connect(self.open_puzzle)
-        self.answersButton.clicked.connect(self.open_answers)
         self.exitButton.clicked.connect(self.close)
+        self.sandboxButton.clicked.connect(self.open_sandbox)
 
     def open_puzzle(self):
         self.puzzle_win = PuzzleWindow()
         self.puzzle_win.show()
 
-    def open_answers(self):
-        self.answer_win = AnswersWindow()
-        self.answer_win.show()
+
+    def open_sandbox(self):
+        self.sandbox_win = BlochWindow()
+        self.sandbox_win.show()

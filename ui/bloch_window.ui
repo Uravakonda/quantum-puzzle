@@ -17,11 +17,44 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.940362, y1:0.894, x2:1, y2:0, stop:0 rgba(131, 246, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="playButton">
+   <widget class="QListWidget" name="gateListWidget">
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>490</y>
+      <y>420</y>
+      <width>301</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget {
+    background-color: white;
+    border: 2px solid rgb(140, 200, 255);
+    border-radius: 15px;
+    padding: 6px;
+    font-family: Futura;
+    font-size: 14px;
+    color: black;
+}
+QListWidget::item {
+    padding: 8px;
+    border-radius: 10px;
+}
+QListWidget::item:hover {
+    background-color: rgb(220, 235, 255);
+}
+QListWidget::item:selected {
+    background-color: rgb(140, 200, 255);
+    color: white;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="applyButton">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>620</y>
       <width>301</width>
       <height>41</height>
      </rect>
@@ -43,51 +76,17 @@
 
 QPushButton:hover {
     background-color: rgb(155, 186, 255); 
-}
-</string>
+}</string>
     </property>
     <property name="text">
-     <string>PLAY</string>
+     <string>APPLY</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exitButton">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>710</y>
-      <width>100</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Futura</family>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color: rgb(140, 200, 255);
-    color: white;
-    border-radius: 10px;  
-    padding: 6px 12px;  
-    border: none;  
-}
-
-QPushButton:hover {
-    background-color: rgb(155, 186, 255); 
-}
-</string>
-    </property>
-    <property name="text">
-     <string>EXIT</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sandboxButton">
+   <widget class="QPushButton" name="resetButton">
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>550</y>
+      <y>680</y>
       <width>301</width>
       <height>41</height>
      </rect>
@@ -109,33 +108,51 @@ QPushButton:hover {
 
 QPushButton:hover {
     background-color: rgb(155, 186, 255); 
-}
-</string>
+}</string>
     </property>
     <property name="text">
-     <string>BLOCH PLAYGROUND</string>
+     <string>RESET</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="blochImageLabel">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>100</y>
+      <width>300</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="titleLabel">
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>50</y>
+      <y>30</y>
       <width>381</width>
-      <height>161</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Futura</family>
-      <pointsize>25</pointsize>
+      <pointsize>36</pointsize>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:72pt; color:#98bcf5;&quot;&gt;QircuitCraft&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#a0b6f5;&quot;&gt;BLOCH PLAYGROUND&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
