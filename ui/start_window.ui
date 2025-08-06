@@ -27,11 +27,11 @@
      <string>Play Puzzle</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="answersButton">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>510</y>
+      <x>430</x>
+      <y>520</y>
       <width>191</width>
       <height>32</height>
      </rect>
@@ -40,7 +40,7 @@
      <string>View Answers</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
       <x>990</x>
