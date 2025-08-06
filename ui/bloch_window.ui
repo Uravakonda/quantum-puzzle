@@ -50,7 +50,7 @@ QListWidget::item:selected {
 </string>
     </property>
    </widget>
-   <widget class="QPushButton" name="applyButton">
+   <widget class="QPushButton" name="applybtn">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -82,7 +82,7 @@ QPushButton:hover {
      <string>APPLY</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="resetButton">
+   <widget class="QPushButton" name="resetbtn">
     <property name="geometry">
      <rect>
       <x>400</x>
