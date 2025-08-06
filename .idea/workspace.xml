@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af065128-f2db-4b3d-8684-a82a4729a2b0" name="Changes" comment="Second part of application built including Bloch Playground feature. Also added CSS formatting to guis for consistent design.">
+    <list default="true" id="af065128-f2db-4b3d-8684-a82a4729a2b0" name="Changes" comment="Fixed bloch sphere visualisation bug and annotated certain components of code with comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloch_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloch_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/puzzle_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/puzzle_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/puzzles.py" beforeDir="false" afterPath="$PROJECT_DIR$/puzzles.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/bloch_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/bloch_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/puzzle_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/puzzle_window.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/start_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/start_window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754506040211</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed bloch sphere visualisation bug and annotated certain components of code with comments">
+      <option name="closed" value="true" />
+      <created>1754512694897</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754512694897</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -122,6 +128,7 @@
     <MESSAGE value="Created basic GUI windows using QTDesigner for initial testing, these are the first prototypes of the GUIs." />
     <MESSAGE value="Written code for first phase of application including all the puzzles. GUI is still basic. First prototype fo application works." />
     <MESSAGE value="Second part of application built including Bloch Playground feature. Also added CSS formatting to guis for consistent design." />
-    <option name="LAST_COMMIT_MESSAGE" value="Second part of application built including Bloch Playground feature. Also added CSS formatting to guis for consistent design." />
+    <MESSAGE value="Fixed bloch sphere visualisation bug and annotated certain components of code with comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bloch sphere visualisation bug and annotated certain components of code with comments" />
   </component>
 </project>

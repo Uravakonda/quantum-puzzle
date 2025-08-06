@@ -18,55 +18,55 @@ class PuzzleWindow(QMainWindow):
         self.puzzles = get_puzzles()
         self.current_index = 0
         self.current = None
-        self.gateListWidget.itemClicked.connect(self.add_gate_to_table)
-        self.runButton.clicked.connect(self.evaluate_circuit)
-        self.resetButton.clicked.connect(self.reset_circuit)
-        self.hintButton.clicked.connect(self.show_hint)
+        self.gatelist.itemClicked.connect(self.add_gate_to_table)
+        self.runbtn.clicked.connect(self.evaluate_circuit)
+        self.resetbtn.clicked.connect(self.reset_circuit)
+        self.hintbtn.clicked.connect(self.show_hint)
         self.load_puzzle(self.current_index)
 
-    def load_puzzle(self, index):
+    def load_puzzle(self,index):
         self.current_index = index
         self.current = self.puzzles[index]
         self.questionLineEdit.setText(self.current["question"])
         self.reset_circuit()
-        self.gateListWidget.clear()
+        self.gatelist.clear()
         if self.current["qubits"] == 1:
-            for g in ["H","Z","S","T", "RX(pi/2)","RZ(pi/4)"]:
-                self.gateListWidget.addItem(QListWidgetItem(g))
+            for j in ["H","Z","S", "T","RX(pi/2)","RZ(pi/4)"]:
+                self.gatelist.addItem(QListWidgetItem(j))
         else:
             #this condition is for the two qubit questions
-            for g in ["H0", "H1","CNOT","SWAP"]:
-                self.gateListWidget.addItem(QListWidgetItem(g))
+            for j in ["H0", "H1","CNOT","SWAP"]:
+                self.gatelist.addItem(QListWidgetItem(j))
 
     def reset_circuit(self):
         self.circuitTableWidget.clearContents()
         self.circuitLineEdit.clear()
         self.resultTextEdit.clear()
 
-    def add_gate_to_table(self, item):
-        text = item.text()
+    def add_gate_to_table(self,item):
+        gatetext = item.text()
         n = self.current["qubits"]
-        placed = False
+        placedgate = False
         for col in range(self.circuitTableWidget.columnCount()):
             if n == 1:
                 if not self.circuitTableWidget.item(0,col):
-                    self.circuitTableWidget.setItem(0,col,QTableWidgetItem(text))
-                    placed = True
+                    self.circuitTableWidget.setItem(0,col,QTableWidgetItem(gatetext))
+                    placedgate = True
             else:
-                if text in ("CNOT","SWAP"):
+                if gatetext in ("CNOT", "SWAP"):
                     if not self.circuitTableWidget.item(0,col) and not self.circuitTableWidget.item(1,col):
-                        self.circuitTableWidget.setItem(0, col,QTableWidgetItem(text))
-                        self.circuitTableWidget.setItem(1,col, QTableWidgetItem(text))
-                        placed = True
+                        self.circuitTableWidget.setItem(0,col,QTableWidgetItem(gatetext))
+                        self.circuitTableWidget.setItem(1, col,QTableWidgetItem(gatetext))
+                        placedgate = True
                 else:
-                    row = 0 if text.endswith("0") else 1
+                    row = 0 if gatetext.endswith("0") else 1
                     if not self.circuitTableWidget.item(row,col):
-                        self.circuitTableWidget.setItem(row,col,QTableWidgetItem(text))
-                        placed = True
-            if placed:
+                        self.circuitTableWidget.setItem(row, col,QTableWidgetItem(gatetext))
+                        placedgate = True
+            if placedgate:
                 break
         #validation for if the table is full of gates
-        if not placed:
+        if not placedgate:
             QMessageBox.warning(self, "Table Full", "No empty slot available.")
             return
         self._update_circuit_lineedit() #this will go to the methodto display teh circuit built by the user in a readable way
@@ -75,14 +75,14 @@ class PuzzleWindow(QMainWindow):
         seq = []
         n = self.current["qubits"]
         cols = self.circuitTableWidget.columnCount()
-        for col in range(cols):
+        for column in range(cols):
             if n == 1:
-                itm = self.circuitTableWidget.item(0,col)
+                itm = self.circuitTableWidget.item(0,column)
                 if itm:
                     seq.append(itm.text())
             else:
-                i0 = self.circuitTableWidget.item(0, col)
-                i1 = self.circuitTableWidget.item(1,col)
+                i0 = self.circuitTableWidget.item(0,column)
+                i1 = self.circuitTableWidget.item(1, column)
                 if i0 and i1 and i0.text() == i1.text() and i0.text() in ("CNOT","SWAP"):
                     seq.append(i0.text())
                 else:
@@ -97,14 +97,14 @@ class PuzzleWindow(QMainWindow):
         qc.data.clear()
         n = self.current["qubits"]
         cols = self.circuitTableWidget.columnCount()
-        for col in range(cols):
+        for column in range(cols):
             name0 = (
-                self.circuitTableWidget.item(0, col).text()
-                if self.circuitTableWidget.item(0,col)
+                self.circuitTableWidget.item(0, column).text()
+                if self.circuitTableWidget.item(0,column)
                 else None
             )
-            name1 = (self.circuitTableWidget.item(1,col).text()
-                if n == 2 and self.circuitTableWidget.item(1,col)
+            name1 = (self.circuitTableWidget.item(1,column).text()
+                if n == 2 and self.circuitTableWidget.item(1,column)
                 else None
             )
             #this is where gates used are applied
@@ -130,7 +130,7 @@ class PuzzleWindow(QMainWindow):
 
     def evaluate_circuit(self):
         qc = self.build_qiskit_circuit()
-        tqc = transpile(qc, self.sim)
+        tqc = transpile(qc,self.sim)
         tqc.save_statevector()
         job = self.sim.run(tqc)
         result = job.result().get_statevector(tqc)
@@ -138,14 +138,14 @@ class PuzzleWindow(QMainWindow):
         fid = state_fidelity(self.current["target_state"],psi) #this calculates the fidelity value for how the answer compares to teh solution
         self.resultTextEdit.append(f"Fidelity: {fid:.4f}")
         if fid > 0.99:
-            QMessageBox.information(self,"Correct!", "Puzzle solved!")
+            QMessageBox.information(self,"Correct!","Puzzle solved!")
             if self.current_index < len(self.puzzles) -1:
                 self.load_puzzle(self.current_index +1)
             else:
-                QMessageBox.information(self,"Done!","You've solved all puzzles.")
+                QMessageBox.information(self,"Well Done!","You have solved all the puzzles.")
 
     def show_hint(self):
         #this method will be used for displaying the hint to visualise like its a circuit
-        raw = self.current["solution"]().draw(output="text")
-        hint = str(raw)
-        QMessageBox.information(self,"Hint (full solution)",hint)
+        rawhint = self.current["solution"]().draw(output="text")
+        hint = str(rawhint)
+        QMessageBox.information(self,"This Is The Hint",hint)

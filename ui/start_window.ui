@@ -17,7 +17,7 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.940362, y1:0.894, x2:1, y2:0, stop:0 rgba(131, 246, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="playButton">
+   <widget class="QPushButton" name="playbtn">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -50,7 +50,7 @@ QPushButton:hover {
      <string>PLAY</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exitButton">
+   <widget class="QPushButton" name="exitbtn">
     <property name="geometry">
      <rect>
       <x>990</x>
@@ -83,7 +83,7 @@ QPushButton:hover {
      <string>EXIT</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="sandboxButton">
+   <widget class="QPushButton" name="blochbtn">
     <property name="geometry">
      <rect>
       <x>400</x>

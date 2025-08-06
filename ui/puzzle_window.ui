@@ -17,7 +17,7 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.940362, y1:0.894, x2:1, y2:0, stop:0 rgba(131, 246, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListWidget" name="gateListWidget">
+   <widget class="QListWidget" name="gatelist">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -126,7 +126,7 @@ QTableWidget::item:selected {
      </property>
     </column>
    </widget>
-   <widget class="QPushButton" name="runButton">
+   <widget class="QPushButton" name="runbtn">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -159,7 +159,7 @@ QPushButton:hover {
      <string>RUN</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="resetButton">
+   <widget class="QPushButton" name="resetbtn">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -192,7 +192,7 @@ QPushButton:hover {
      <string>RESET</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="hintButton">
+   <widget class="QPushButton" name="hintbtn">
     <property name="geometry">
      <rect>
       <x>220</x>
